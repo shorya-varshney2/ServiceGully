@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fair Price Estimator — Servicegully</title>
+    <meta name="description" content="Calculate transparent standardized market labor and spare parts rates for home repair tasks." />
+    
+    <!-- Tailwind CSS (CDN for this frontend prototype) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts: Sora (Headings) & Manrope (Body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Sora:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+    <!-- Pure Vanilla CSS Stylesheet -->
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/interactive.css" />
+  </head>
+  <body class="bg-slate-50">
+    <!-- Top Navigation -->
+    <header class="header-sticky glass-nav">
+      <div class="container nav-wrapper">
+        <div class="flex items-center gap-4">
+          <a href="index.html" class="brand-logo">
+            <div class="brand-icon-box">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+            </div>
+            <div>
+              <div class="flex items-center">
+                <span class="brand-title">Service<span class="brand-highlight">gully</span></span>
+                <span class="brand-badge">Verified</span>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <nav class="flex items-center gap-2" style="display: none; @media(min-width: 768px){display: flex;}">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="browse.html" class="nav-link">Find Pros</a>
+          <a href="calculator.html" class="nav-link active">Rate Estimator</a>
+        </nav>
+
+        <div class="flex items-center gap-2.5">
+          <a href="partner.html" class="btn btn-outline btn-sm">Partner Portal</a>
+          <a href="browse.html" class="btn btn-primary btn-sm">Browse Directory</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="py-10">
+      <div class="container max-w-6xl space-y-8">
+        
+        <!-- Header -->
+        <div class="text-center max-w-2xl space-y-2">
+          <span class="badge-tag badge-emerald font-bold">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="16" height="20" x="4" y="2" rx="2"/><line x1="8" x2="16" y1="6" y2="6"/><line x1="16" x2="16" y1="14" y2="18"/><path d="M16 10h.01"/><path d="M12 10h.01"/><path d="M8 10h.01"/><path d="M12 14h.01"/><path d="M8 14h.01"/><path d="M12 18h.01"/><path d="M8 18h.01"/></svg>
+            <span>Transparent Market Rate Estimator</span>
+          </span>
+          <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900">Home Service Cost Estimator</h1>
+          <p class="text-xs sm:text-sm text-slate-600 font-medium">
+            Standardized fair market rates for labor, replacement spares, and diagnostic inspection across Delhi NCR.
+          </p>
+        </div>
+
+        <!-- 2-Column Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          
+          <!-- Left 2 Columns: Category Checklists -->
+          <div class="lg:col-span-2 space-y-6">
+            
+            <!-- Electrical -->
+            <div class="card p-6 space-y-4">
+              <div class="flex items-center gap-2.5 pb-2 border-b border-slate-100">
+                <div style="width: 2rem; height: 2rem; border-radius: 0.75rem; background: var(--color-primary-50); color: var(--color-primary-700); display: flex; align-items: center; justify-content: center;">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                </div>
+                <h3 class="font-bold text-base text-slate-900">Electrical & Power Fixes</h3>
+              </div>
+
+              <div class="space-y-2.5">
+                <div class="p-3.5 rounded-2xl border bg-emerald-50 border-emerald-300 flex items-center justify-between gap-4">
+                  <div class="flex items-center gap-3">
+                    <div style="width: 1.25rem; height: 1.25rem; border-radius: 0.35rem; background: var(--color-primary-600); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 800;">✓</div>
+                    <div>
+                      <p class="font-bold text-xs sm:text-sm text-slate-900">Ceiling Fan Installation / Replacement</p>
+                      <p class="text-[11px] text-slate-400 font-medium">Labor: ₹150–₹250 • Spares: ₹0–₹150</p>
+                    </div>
+                  </div>
+                  <span class="text-xs font-black text-slate-900 font-heading">~₹199</span>
+                </div>
+
+                <div class="p-3.5 rounded-2xl border bg-emerald-50 border-emerald-300 flex items-center justify-between gap-4">
+                  <div class="flex items-center gap-3">
+                    <div style="width: 1.25rem; height: 1.25rem; border-radius: 0.35rem; background: var(--color-primary-600); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 800;">✓</div>
+                    <div>
+                      <p class="font-bold text-xs sm:text-sm text-slate-900">Switchboard / Socket Repair or Replace</p>
+                      <p class="text-[11px] text-slate-400 font-medium">Labor: ₹100–₹200 • Spares: ₹50–₹250</p>
+                    </div>
+                  </div>
+                  <span class="text-xs font-black text-slate-900 font-heading">~₹149</span>
+                </div>
+
+                <div class="p-3.5 rounded-2xl border bg-white border-slate-200 flex items-center justify-between gap-4">
+                  <div class="flex items-center gap-3">
+                    <div style="width: 1.25rem; height: 1.25rem; border-radius: 0.35rem; border: 1px solid var(--color-slate-300); background: #fff;"></div>
+                    <div>
+                      <p class="font-bold text-xs sm:text-sm text-slate-900">Main MCB Tripping / Short Circuit Diagnostic</p>
+                      <p class="text-[11px] text-slate-400 font-medium">Labor: ₹250–₹450 • Spares: ₹150–₹600</p>
+                    </div>
+                  </div>
+                  <span class="text-xs font-black text-slate-900 font-heading">~₹299</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Plumbing -->
+            <div class="card p-6 space-y-4">
+              <div class="flex items-center gap-2.5 pb-2 border-b border-slate-100">
+                <div style="width: 2rem; height: 2rem; border-radius: 0.75rem; background: var(--color-primary-50); color: var(--color-primary-700); display: flex; align-items: center; justify-content: center;">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
+                </div>
+                <h3 class="font-bold text-base text-slate-900">Plumbing & Drainage</h3>
+              </div>
+
+              <div class="space-y-2.5">
+                <div class="p-3.5 rounded-2xl border bg-white border-slate-200 flex items-center justify-between gap-4">
+                  <div class="flex items-center gap-3">
+                    <div style="width: 1.25rem; height: 1.25rem; border-radius: 0.35rem; border: 1px solid var(--color-slate-300); background: #fff;"></div>
+                    <div>
+                      <p class="font-bold text-xs sm:text-sm text-slate-900">Tap / Mixer Repair & Spindle Change</p>
+                      <p class="text-[11px] text-slate-400 font-medium">Labor: ₹120–₹200 • Spares: ₹50–₹300</p>
+                    </div>
+                  </div>
+                  <span class="text-xs font-black text-slate-900 font-heading">~₹149</span>
+                </div>
+
+                <div class="p-3.5 rounded-2xl border bg-white border-slate-200 flex items-center justify-between gap-4">
+                  <div class="flex items-center gap-3">
+                    <div style="width: 1.25rem; height: 1.25rem; border-radius: 0.35rem; border: 1px solid var(--color-slate-300); background: #fff;"></div>
+                    <div>
+                      <p class="font-bold text-xs sm:text-sm text-slate-900">Concealed Pipe Leak Acoustic Detection</p>
+                      <p class="text-[11px] text-slate-400 font-medium">Labor: ₹350–₹600 • Spares: ₹100–₹400</p>
+                    </div>
+                  </div>
+                  <span class="text-xs font-black text-slate-900 font-heading">~₹399</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- AC -->
+            <div class="card p-6 space-y-4">
+              <div class="flex items-center gap-2.5 pb-2 border-b border-slate-100">
+                <div style="width: 2rem; height: 2rem; border-radius: 0.75rem; background: var(--color-primary-50); color: var(--color-primary-700); display: flex; align-items: center; justify-content: center;">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.7 7.7a2.5 2.5 0 1 1 1.8 4.3H2"/><path d="M9.6 4.6A2 2 0 1 1 11 8H2"/><path d="M12.6 19.4A2 2 0 1 0 14 16H2"/></svg>
+                </div>
+                <h3 class="font-bold text-base text-slate-900">Air Conditioning & Cooling</h3>
+              </div>
+
+              <div class="space-y-2.5">
+                <div class="p-3.5 rounded-2xl border bg-white border-slate-200 flex items-center justify-between gap-4">
+                  <div class="flex items-center gap-3">
+                    <div style="width: 1.25rem; height: 1.25rem; border-radius: 0.35rem; border: 1px solid var(--color-slate-300); background: #fff;"></div>
+                    <div>
+                      <p class="font-bold text-xs sm:text-sm text-slate-900">Power Jet Foam AC Deep Service (1 Split AC)</p>
+                      <p class="text-[11px] text-slate-400 font-medium">Labor: ₹400–₹600 • Deep antimicrobial wash</p>
+                    </div>
+                  </div>
+                  <span class="text-xs font-black text-slate-900 font-heading">~₹499</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Right Column: Summary Breakdown -->
+          <div class="space-y-6">
+            <div class="card p-6 sm:p-7 space-y-5 sticky" style="top: 6rem;">
+              <h3 class="font-bold text-base text-slate-900 pb-3 border-b border-slate-100">Estimated Rate Breakdown</h3>
+
+              <div class="space-y-4 text-xs">
+                <div class="flex justify-between text-slate-600 font-semibold">
+                  <span>Selected Tasks:</span>
+                  <span class="font-bold text-slate-900">2 items (Fan + Switchboard)</span>
+                </div>
+
+                <div class="flex justify-between text-slate-600 font-medium">
+                  <span>Doorstep Inspection / Visit Fee:</span>
+                  <span class="font-bold text-slate-900">₹149</span>
+                </div>
+
+                <div class="flex justify-between text-slate-600 font-medium">
+                  <span>Estimated Labor Range:</span>
+                  <span class="font-bold text-slate-900">₹250 – ₹450</span>
+                </div>
+
+                <div class="flex justify-between text-slate-600 font-medium">
+                  <span>Estimated Spare Parts:</span>
+                  <span class="font-bold text-slate-900">₹50 – ₹400</span>
+                </div>
+
+                <div class="flex justify-between text-emerald-800 font-semibold pt-2 border-t border-slate-100">
+                  <span>30-Day Guarantee & OTP:</span>
+                  <span class="font-bold text-emerald-600">Included FREE</span>
+                </div>
+
+                <!-- Total Box -->
+                <div class="p-4 rounded-2xl text-white space-y-1" style="background: linear-gradient(135deg, var(--color-primary-600), var(--color-teal-600));">
+                  <span class="text-[10px] uppercase font-bold text-emerald-100 tracking-wider">Fair Market Estimate Range</span>
+                  <div class="text-2xl sm:text-3xl font-black font-heading">₹449 – ₹999</div>
+                  <p class="text-[10px] text-emerald-100">Standardized rate for Delhi NCR & metro areas.</p>
+                </div>
+
+                <a href="browse.html?category=Electrician" class="btn btn-dark btn-md w-full mt-4">
+                  <span>Find Electricians for This Job</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+          <p>© 2026 Servicegully Technologies Pvt Ltd. All rights reserved.</p>
+          <div class="flex items-center gap-4">
+            <a href="index.html" class="hover:text-slate-300">Home</a>
+            <a href="browse.html" class="hover:text-slate-300">Directory</a>
+            <a href="calculator.html" class="hover:text-slate-300">Rate Card</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script src="js/servicegully.js"></script>
+  </body>
+</html>

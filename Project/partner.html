@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Partner Portal — Servicegully</title>
+    <meta name="description" content="Technician partner portal for Servicegully verified service professionals." />
+
+    <!-- Tailwind CSS (CDN for this frontend prototype) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts: Sora (Headings) & Manrope (Body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/interactive.css" />
+  </head>
+  <body class="bg-slate-50">
+    <!-- Top Navigation -->
+    <header class="header-sticky glass-nav">
+      <div class="container nav-wrapper">
+        <div class="flex items-center gap-4">
+          <a href="index.html" class="brand-logo">
+            <div class="brand-icon-box">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
+              </svg>
+            </div>
+            <div>
+              <div class="flex items-center">
+                <span class="brand-title">Service<span class="brand-highlight">gully</span></span>
+                <span class="brand-badge">Partner Hub</span>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <nav class="flex items-center gap-2" style="display: none; @media(min-width: 768px){display: flex;}">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="browse.html" class="nav-link">Find Pros</a>
+          <a href="calculator.html" class="nav-link">Rate Estimator</a>
+          <a href="partner.html" class="nav-link active">Partner Portal</a>
+        </nav>
+
+        <div class="flex items-center gap-2.5">
+          <a href="index.html" class="btn btn-outline btn-sm">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
+              <circle cx="12" cy="7" r="4" />
+            </svg>
+            <span>Customer View</span>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="py-8">
+      <div class="container space-y-6">
+
+        <!-- Technician Profile Header (Clean, white card) -->
+        <section class="card p-6">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div class="flex items-center gap-4">
+              <img
+                src="https://images.unsplash.com/photo-1540569014015-19a7be504e3a?w=400&auto=format&fit=crop&q=80"
+                alt="Rajesh Sharma"
+                class="pro-avatar"
+              />
+              <div>
+                <div class="flex items-center gap-2">
+                  <h1 class="text-xl font-bold text-slate-900">Rajesh Sharma</h1>
+                  <span class="badge-tag badge-emerald">Verified Partner</span>
+                </div>
+                <p class="text-xs text-slate-500 mt-1">Electrician • Indirapuram, Ghaziabad</p>
+                <p class="text-xs text-slate-600 mt-0.5">Phone: +91 98765 43210 • Active Account</p>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-2">
+              <a href="tel:+919876543210" class="btn btn-outline btn-sm">Partner Helpline</a>
+              <a href="browse.html" class="btn btn-primary btn-sm">View Directory</a>
+            </div>
+          </div>
+        </section>
+
+        <!-- Metric Summary Cards -->
+        <section class="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div class="card p-4">
+            <p class="text-xs text-slate-500 font-medium">Completed Jobs</p>
+            <p class="text-2xl font-bold text-slate-900 mt-1 font-heading">218</p>
+            <p class="text-[11px] text-emerald-700 font-semibold mt-1">98% positive reviews</p>
+          </div>
+
+          <div class="card p-4">
+            <p class="text-xs text-slate-500 font-medium">Customer Rating</p>
+            <p class="text-2xl font-bold text-slate-900 mt-1 font-heading">★ 4.9</p>
+            <p class="text-[11px] text-slate-500 mt-1">Verified customers</p>
+          </div>
+
+          <div class="card p-4">
+            <p class="text-xs text-slate-500 font-medium">Standard Visiting Fee</p>
+            <p class="text-2xl font-bold text-slate-900 mt-1 font-heading">₹149</p>
+            <p class="text-[11px] text-slate-500 mt-1">Inspection & diagnosis</p>
+          </div>
+
+          <div class="card p-4">
+            <p class="text-xs text-slate-500 font-medium">Service Locality</p>
+            <p class="text-2xl font-bold text-slate-900 mt-1 font-heading">Indirapuram</p>
+            <p class="text-[11px] text-slate-500 mt-1">Ghaziabad & nearby</p>
+          </div>
+        </section>
+
+        <!-- Two Column Section: Service History & Partner Guidelines -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+
+          <!-- Recent Service History Table -->
+          <section class="card p-6 lg:col-span-2 space-y-4">
+            <div class="flex items-center justify-between pb-3 border-b border-slate-100">
+              <h2 class="text-base font-bold text-slate-900">Recent Service History</h2>
+              <span class="text-xs text-slate-500">Last 30 Days</span>
+            </div>
+
+            <div class="overflow-x-auto">
+              <table class="data-table text-xs">
+                <thead>
+                  <tr>
+                    <th>Date</th>
+                    <th>Service Type</th>
+                    <th>Locality</th>
+                    <th class="text-right">Amount</th>
+                    <th class="text-right">Status</th>
+                  </tr>
+                </thead>
+                <tbody class="text-slate-700">
+                  <tr>
+                    <td>22 Sep 2026</td>
+                    <td class="font-semibold text-slate-900">Ceiling Fan Installation</td>
+                    <td class="text-slate-500">Ahinsa Khand 2</td>
+                    <td class="text-right font-bold text-slate-900">₹199</td>
+                    <td class="text-right"><span class="badge-tag badge-emerald">Completed</span></td>
+                  </tr>
+                  <tr>
+                    <td>20 Sep 2026</td>
+                    <td class="font-semibold text-slate-900">MCB Tripping Diagnostic</td>
+                    <td class="text-slate-500">Shipra Riviera</td>
+                    <td class="text-right font-bold text-slate-900">₹448</td>
+                    <td class="text-right"><span class="badge-tag badge-emerald">Completed</span></td>
+                  </tr>
+                  <tr>
+                    <td>18 Sep 2026</td>
+                    <td class="font-semibold text-slate-900">Switchboard Replacement</td>
+                    <td class="text-slate-500">Vaibhav Khand</td>
+                    <td class="text-right font-bold text-slate-900">₹299</td>
+                    <td class="text-right"><span class="badge-tag badge-emerald">Completed</span></td>
+                  </tr>
+                  <tr>
+                    <td>15 Sep 2026</td>
+                    <td class="font-semibold text-slate-900">Inverter Wiring Check</td>
+                    <td class="text-slate-500">Niti Khand 1</td>
+                    <td class="text-right font-bold text-slate-900">₹350</td>
+                    <td class="text-right"><span class="badge-tag badge-emerald">Completed</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <!-- Partner Guidelines -->
+          <section class="card p-6 space-y-4">
+            <h2 class="text-base font-bold text-slate-900 pb-3 border-b border-slate-100">Partner Guidelines</h2>
+
+            <div class="space-y-3 text-xs text-slate-600">
+              <div>
+                <p class="font-bold text-slate-900">Fair Rate Card Compliance</p>
+                <p class="text-slate-500 mt-0.5">Always reference the standardized market rate card before quoting repair costs.</p>
+              </div>
+
+              <div>
+                <p class="font-bold text-slate-900">30-Day Re-work Guarantee</p>
+                <p class="text-slate-500 mt-0.5">Honor free diagnostic check if the same issue recurs within 30 days of service.</p>
+              </div>
+
+              <div>
+                <p class="font-bold text-slate-900">Partner Help Desk</p>
+                <p class="text-slate-500 mt-0.5">Available Monday to Saturday, 9:00 AM – 7:00 PM at <strong>+91 (120) 456-7890</strong>.</p>
+              </div>
+            </div>
+
+            <div class="pt-3 border-t border-slate-100">
+              <a href="calculator.html" class="btn btn-outline btn-sm w-full text-center">View Standard Rate Card</a>
+            </div>
+          </section>
+
+        </div>
+
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+          <p>© 2026 Servicegully Technologies Pvt Ltd. All rights reserved.</p>
+          <div class="flex items-center gap-4">
+            <a href="index.html" class="hover:text-slate-300">Home</a>
+            <a href="browse.html" class="hover:text-slate-300">Directory</a>
+            <a href="calculator.html" class="hover:text-slate-300">Rate Card</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Mobile Nav -->
+    <nav class="mobile-bottom-nav">
+      <a href="index.html" class="mobile-nav-item">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+          <polyline points="9 22 9 12 15 12 15 22" />
+        </svg>
+        <span>Home</span>
+      </a>
+      <a href="browse.html" class="mobile-nav-item">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8" />
+          <path d="m21 21-4.3-4.3" />
+        </svg>
+        <span>Browse</span>
+      </a>
+      <a href="partner.html" class="mobile-nav-item active">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
+          <circle cx="12" cy="7" r="4" />
+        </svg>
+        <span>Partner</span>
+      </a>
+    </nav>
+    <script src="js/servicegully.js"></script>
+  </body>
+</html>

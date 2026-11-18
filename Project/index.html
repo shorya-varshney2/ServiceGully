@@ -1,11 +1,506 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Servicegully — Find & Compare Trusted Local Service Professionals</title>
+    <meta name="description" content="Centralized platform to find, compare, and instantly book trusted local service professionals (electricians, plumbers, repair technicians) based on ratings, real-time availability, and transparent charges." />
     
-</body>
+    <!-- Tailwind CSS (CDN for this frontend prototype) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts: Sora (Headings) & Manrope (Body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Sora:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+    <!-- Pure Vanilla CSS Stylesheet -->
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/interactive.css" />
+  </head>
+  <body>
+    <!-- Top Navigation -->
+    <header class="header-sticky glass-nav">
+      <div class="container nav-wrapper">
+        <!-- Brand Logo & Locality -->
+        <div class="flex items-center gap-4">
+          <a href="index.html" class="brand-logo">
+            <div class="brand-icon-box">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+            </div>
+            <div>
+              <div class="flex items-center">
+                <span class="brand-title">Service<span class="brand-highlight">gully</span></span>
+                <span class="brand-badge">Verified</span>
+              </div>
+              <p class="text-xs text-slate-500 font-medium" style="display: none; @media(min-width: 768px){display: block;}">Trusted local pros near you</p>
+            </div>
+          </a>
+
+          <!-- Locality Selector -->
+          <div style="display: none; @media(min-width: 1024px){display: block;}">
+            <div class="category-pill" style="padding: 0.375rem 0.75rem; font-size: 0.75rem;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+              <span class="truncate" style="max-width: 140px;">Indirapuram, Ghaziabad</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Desktop Navigation Links -->
+        <nav class="flex items-center gap-2" style="display: none; @media(min-width: 768px){display: flex;}">
+          <a href="index.html" class="nav-link active">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            <span>Home</span>
+          </a>
+          <a href="browse.html" class="nav-link">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+            <span>Find Pros</span>
+          </a>
+          <a href="calculator.html" class="nav-link">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="16" height="20" x="4" y="2" rx="2"/><line x1="8" x2="16" y1="6" y2="6"/><line x1="16" x2="16" y1="14" y2="18"/><path d="M16 10h.01"/><path d="M12 10h.01"/><path d="M8 10h.01"/><path d="M12 14h.01"/><path d="M8 14h.01"/><path d="M12 18h.01"/><path d="M8 18h.01"/></svg>
+            <span>Rate Estimator</span>
+          </a>
+        </nav>
+
+        <!-- Right Controls -->
+        <div class="flex items-center gap-2.5">
+          <a href="partner.html" class="btn btn-outline btn-sm">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+            <span class="font-bold">Partner Portal</span>
+          </a>
+
+          <a href="browse.html?emergency=true" class="btn btn-sos btn-sm pulse-sos" style="display: none; @media(min-width: 1024px){display: inline-flex;}">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+            <span>SOS 30-Min</span>
+          </a>
+
+          <div class="flex items-center gap-2 p-1 rounded-full border border-slate-200 bg-white">
+            <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=150" alt="User" style="width: 2rem; height: 2rem; border-radius: 9999px; object-fit: cover; border: 2px solid var(--color-primary-500);" />
+            <span class="font-bold text-xs text-slate-800" style="display: none; @media(min-width: 640px){display: inline;}">Rajshekhar</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="hero-glow-1"></div>
+      <div class="hero-glow-2"></div>
+
+      <div class="container relative">
+        <!-- Headline -->
+        <div class="text-center max-w-4xl mb-8">
+          <h1 class="hero-title">
+            Find & Compare Trusted <br />
+            <span class="gradient-text">Local Service Professionals</span> Near You
+          </h1>
+          <p class="text-sm sm:text-base text-slate-600 max-w-2xl mx-auto font-medium mt-4 leading-relaxed">
+            Stop relying on random guesses. Compare verified electricians, plumbers, and repair technicians side-by-side on ratings, transparent rate cards, and live availability.
+          </p>
+        </div>
+
+        <!-- Central Search Box -->
+        <div class="max-w-3xl mb-8">
+          <form action="browse.html" method="GET" class="search-box-card flex flex-col md:flex-row items-stretch gap-3">
+            <!-- Locality Selector -->
+            <div class="search-field-pill">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+              <div class="flex-1 text-left min-w-0">
+                <label class="field-label">Location</label>
+                <select name="locality" class="field-select">
+                  <option value="Indirapuram, Ghaziabad" selected>Indirapuram, Ghaziabad</option>
+                  <option value="Sector 62, Noida">Sector 62, Noida</option>
+                  <option value="Vaishali, Ghaziabad">Vaishali, Ghaziabad</option>
+                  <option value="Kaushambi, Ghaziabad">Kaushambi, Ghaziabad</option>
+                  <option value="Vasundhara, Ghaziabad">Vasundhara, Ghaziabad</option>
+                  <option value="Sector 18, Noida">Sector 18, Noida</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Keyword Input -->
+            <div class="search-field-pill" style="flex: 1.5;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+              <div class="flex-1 text-left">
+                <label class="field-label">Service or Problem</label>
+                <input type="text" name="search" placeholder="e.g. Electrician, Fan install, Tap leak..." class="field-input" />
+              </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="flex items-center gap-2">
+              <button type="submit" class="btn btn-primary btn-md flex-1">
+                <span>Search</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+              </button>
+            </div>
+          </form>
+
+          <!-- Quick SOS Pill -->
+          <div class="mt-4 flex items-center justify-start gap-3 px-2">
+            <a href="browse.html?emergency=true" class="btn btn-sos btn-sm pulse-sos">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+              <span>SOS Express Fix (&lt; 20 Mins)</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Popular Trade Categories Grid -->
+        <div class="mt-12">
+          <p class="text-center text-xs font-bold uppercase tracking-wider text-slate-400 mb-4">Popular Trade Categories</p>
+          <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-3">
+            <a href="browse.html?category=Electrician" class="category-card">
+              <div class="category-icon-box">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+              </div>
+              <span class="font-bold text-xs text-slate-800">Electrician</span>
+              <span class="text-[10px] text-slate-400 mt-0.5">From ₹149</span>
+            </a>
+
+            <a href="browse.html?category=Plumber" class="category-card">
+              <div class="category-icon-box">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
+              </div>
+              <span class="font-bold text-xs text-slate-800">Plumber</span>
+              <span class="text-[10px] text-slate-400 mt-0.5">From ₹129</span>
+            </a>
+
+            <a href="browse.html?category=AC%20Repair" class="category-card">
+              <div class="category-icon-box">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.7 7.7a2.5 2.5 0 1 1 1.8 4.3H2"/><path d="M9.6 4.6A2 2 0 1 1 11 8H2"/><path d="M12.6 19.4A2 2 0 1 0 14 16H2"/></svg>
+              </div>
+              <span class="font-bold text-xs text-slate-800">AC & Cooling</span>
+              <span class="text-[10px] text-slate-400 mt-0.5">From ₹499</span>
+            </a>
+
+            <a href="browse.html?category=Appliance%20Specialist" class="category-card">
+              <div class="category-icon-box">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="15" x="2" y="7" rx="2" ry="2"/><polyline points="17 2 12 7 7 2"/></svg>
+              </div>
+              <span class="font-bold text-xs text-slate-800">Appliance Repair</span>
+              <span class="text-[10px] text-slate-400 mt-0.5">From ₹299</span>
+            </a>
+
+            <a href="browse.html?category=RO%20Water%20Purifier" class="category-card">
+              <div class="category-icon-box">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+              </div>
+              <span class="font-bold text-xs text-slate-800">RO & Purifier</span>
+              <span class="text-[10px] text-slate-400 mt-0.5">From ₹99</span>
+            </a>
+
+            <a href="browse.html?category=Carpenter" class="category-card">
+              <div class="category-icon-box">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 12-8.5 8.5c-.83.83-2.17.83-3 0 0 0 0 0 0 0a2.12 2.12 0 0 1 0-3L12 9"/><path d="M17.64 15 22 10.64"/><path d="m20.91 3.26-2.17-2.18a2.12 2.12 0 0 0-3 0L9.12 7.7a2.12 2.12 0 0 0 0 3l2.18 2.18a2.12 2.12 0 0 0 3 0l6.61-6.62a2.12 2.12 0 0 0 0-3z"/></svg>
+              </div>
+              <span class="font-bold text-xs text-slate-800">Carpenter</span>
+              <span class="text-[10px] text-slate-400 mt-0.5">From ₹149</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Featured Top-Rated Specialists -->
+    <section class="py-16 bg-slate-50">
+      <div class="container">
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10">
+          <div>
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">Highest Rated Near You</h2>
+            <p class="text-slate-600 text-xs sm:text-sm mt-1">Background-checked experts ready for same-day and emergency dispatch.</p>
+          </div>
+
+          <a href="browse.html" class="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-emerald-700 hover:text-emerald-800">
+            <span>Explore all trade categories</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </a>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          
+          <!-- Card 1: Rajesh Sharma -->
+          <div class="pro-card">
+            <div>
+              <div class="flex items-start justify-between gap-3 mb-4">
+                <div class="flex items-center gap-3">
+                  <img src="https://images.unsplash.com/photo-1540569014015-19a7be504e3a?w=400&auto=format&fit=crop&q=80" alt="Rajesh Sharma" class="pro-avatar" />
+                  <div>
+                    <div class="flex items-center gap-1.5">
+                      <span class="font-extrabold text-sm text-slate-900">Rajesh Sharma</span>
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+                    </div>
+                    <p class="text-xs text-slate-500 font-semibold">Electrician</p>
+                    <div class="flex items-center gap-1 text-xs font-bold text-amber-700 mt-0.5">
+                      <span>★ 4.9</span>
+                      <span class="text-slate-400 font-normal">(218 reviews)</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="text-right">
+                  <span class="text-[10px] font-bold text-slate-400 uppercase">Visit Fee</span>
+                  <div class="text-lg font-black text-slate-900 font-heading">₹149</div>
+                </div>
+              </div>
+
+              <p class="text-xs text-slate-600 mb-3 leading-relaxed">Master Electrician & Smart Inverter Specialist. Over 12 years of hands-on troubleshooting.</p>
+
+              <div class="flex flex-wrap items-center gap-x-3 gap-y-1 text-[11px] text-slate-500 mb-4 pb-3 border-b border-slate-100">
+                <span class="flex items-center gap-1">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                  <span>Indirapuram (1.2 km)</span>
+                </span>
+                <span class="flex items-center gap-1 font-bold text-emerald-700">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14"/></svg>
+                  <span>~15m arrival</span>
+                </span>
+              </div>
+
+              <div class="flex flex-wrap gap-1 mb-4">
+                <span class="badge-tag badge-emerald">Govt Certified</span>
+                <span class="badge-tag badge-emerald">Top Rated 2026</span>
+                <span class="badge-tag badge-emerald">30-Day Guarantee</span>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-2 pt-2">
+              <a href="tel:+919876543210" class="btn btn-sm btn-outline flex-1">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                <span>Call</span>
+              </a>
+              <a href="browse.html" class="btn btn-sm btn-primary flex-1">Book Now</a>
+            </div>
+          </div>
+
+          <!-- Card 2: Amit Kumar Verma -->
+          <div class="pro-card">
+            <div>
+              <div class="flex items-start justify-between gap-3 mb-4">
+                <div class="flex items-center gap-3">
+                  <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&auto=format&fit=crop&q=80" alt="Amit Kumar Verma" class="pro-avatar" />
+                  <div>
+                    <div class="flex items-center gap-1.5">
+                      <span class="font-extrabold text-sm text-slate-900">Amit Kumar Verma</span>
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+                    </div>
+                    <p class="text-xs text-slate-500 font-semibold">Plumber</p>
+                    <div class="flex items-center gap-1 text-xs font-bold text-amber-700 mt-0.5">
+                      <span>★ 4.8</span>
+                      <span class="text-slate-400 font-normal">(184 reviews)</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="text-right">
+                  <span class="text-[10px] font-bold text-slate-400 uppercase">Visit Fee</span>
+                  <div class="text-lg font-black text-slate-900 font-heading">₹129</div>
+                </div>
+              </div>
+
+              <p class="text-xs text-slate-600 mb-3 leading-relaxed">Senior Plumbing & Concealed Leak Specialist. Brings acoustic leak sensors for clean repair.</p>
+
+              <div class="flex flex-wrap items-center gap-x-3 gap-y-1 text-[11px] text-slate-500 mb-4 pb-3 border-b border-slate-100">
+                <span class="flex items-center gap-1">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                  <span>Sector 62, Noida (1.8 km)</span>
+                </span>
+                <span class="flex items-center gap-1 font-bold text-emerald-700">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                  <span>~20m arrival</span>
+                </span>
+              </div>
+
+              <div class="flex flex-wrap gap-1 mb-4">
+                <span class="badge-tag badge-emerald">Concealed Leak Expert</span>
+                <span class="badge-tag badge-emerald">30-Day Guarantee</span>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-2 pt-2">
+              <a href="tel:+919876543210" class="btn btn-sm btn-outline flex-1">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                <span>Call</span>
+              </a>
+              <a href="browse.html" class="btn btn-sm btn-primary flex-1">Book Now</a>
+            </div>
+          </div>
+
+          <!-- Card 3: Vikas Chauhan -->
+          <div class="pro-card">
+            <div>
+              <div class="flex items-start justify-between gap-3 mb-4">
+                <div class="flex items-center gap-3">
+                  <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&auto=format&fit=crop&q=80" alt="Vikas Chauhan" class="pro-avatar" />
+                  <div>
+                    <div class="flex items-center gap-1.5">
+                      <span class="font-extrabold text-sm text-slate-900">Vikas Chauhan</span>
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+                    </div>
+                    <p class="text-xs text-slate-500 font-semibold">AC & Cooling</p>
+                    <div class="flex items-center gap-1 text-xs font-bold text-amber-700 mt-0.5">
+                      <span>★ 4.9</span>
+                      <span class="text-slate-400 font-normal">(312 reviews)</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="text-right">
+                  <span class="text-[10px] font-bold text-slate-400 uppercase">Visit Fee</span>
+                  <div class="text-lg font-black text-slate-900 font-heading">₹199</div>
+                </div>
+              </div>
+
+              <p class="text-xs text-slate-600 mb-3 leading-relaxed">HVAC Master & Split / Inverter AC Specialist. Deep foam jet service with 60-day warranty.</p>
+
+              <div class="flex flex-wrap items-center gap-x-3 gap-y-1 text-[11px] text-slate-500 mb-4 pb-3 border-b border-slate-100">
+                <span class="flex items-center gap-1">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                  <span>Vaishali (2.4 km)</span>
+                </span>
+                <span class="flex items-center gap-1 font-bold text-emerald-700">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                  <span>~25m arrival</span>
+                </span>
+              </div>
+
+              <div class="flex flex-wrap gap-1 mb-4">
+                <span class="badge-tag badge-emerald">HVAC Certified</span>
+                <span class="badge-tag badge-emerald">Gas Warranty</span>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-2 pt-2">
+              <a href="tel:+919876543210" class="btn btn-sm btn-outline flex-1">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                <span>Call</span>
+              </a>
+              <a href="browse.html" class="btn btn-sm btn-primary flex-1">Book Now</a>
+            </div>
+          </div>
+
+
+
+        </div>
+
+        <div class="mt-12 text-center">
+          <a href="browse.html" class="btn btn-dark btn-lg">
+            <span>Browse Full Directory & Compare</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Servicegully is Different -->
+    <section id="why-servicegully" class="py-20 bg-white border-y border-slate-200">
+      <div class="container">
+        <div class="text-center max-w-2xl mb-16">
+          <h2 class="text-3xl font-extrabold text-slate-900">Why Servicegully is Different</h2>
+          <p class="text-slate-600 text-sm mt-2">Say goodbye to price gouging, unverified phone numbers, and surprise charges.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="space-y-3">
+            <div style="width: 3rem; height: 3rem; border-radius: 6px; background: #eef2ff; color: #4338ca; display: flex; align-items: center; justify-content: center;">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="M7 21h10"/><path d="M12 3v18"/><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/></svg>
+            </div>
+            <h3 class="text-lg font-bold text-slate-900">Side-by-Side Comparison</h3>
+            <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
+              Select up to 4 technicians and compare visiting charges, verified star ratings, customer reviews, and response times on a clean matrix.
+            </p>
+          </div>
+
+          <div class="space-y-3">
+            <div style="width: 3rem; height: 3rem; border-radius: 6px; background: #ecfdf5; color: #047857; display: flex; align-items: center; justify-content: center;">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 10v12"/><path d="M15 5.88 14 10h5.83a2 2 0 0 1 1.92 2.56l-2.33 8A2 2 0 0 1 17.5 22H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h2.76a2 2 0 0 0 1.79-1.11L12 2h0a3.13 3.13 0 0 1 3 3.88Z"/></svg>
+            </div>
+            <h3 class="text-lg font-bold text-slate-900">100% Transparent Rate Card</h3>
+            <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
+              Know the exact inspection fee and itemized labor charges before hiring. No surprise post-work bills or hidden extra charges.
+            </p>
+          </div>
+
+          <div class="space-y-3">
+            <div style="width: 3rem; height: 3rem; border-radius: 6px; background: #fffbeb; color: #92400e; display: flex; align-items: center; justify-content: center;">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+            </div>
+            <h3 class="text-lg font-bold text-slate-900">OTP Safety & 30-Day Guarantee</h3>
+            <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
+              Technicians are only paid upon successful OTP verification after job completion, backed by a 30-day rework warranty.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer id="contact-us" class="site-footer">
+      <div class="container">
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 mb-12">
+          <div>
+            <div class="flex items-center gap-2 mb-4">
+              <div class="brand-icon-box" style="width: 2.25rem; height: 2.25rem;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+              </div>
+              <span class="brand-title" style="color: #ffffff;">Service<span class="brand-highlight">gully</span></span>
+            </div>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              Find, compare, and connect with trusted local service professionals near you.
+            </p>
+          </div>
+
+          <div>
+            <h4 class="footer-heading">Trade Categories</h4>
+            <a href="browse.html?category=Electrician" class="footer-link">Electrician & Inverters</a>
+            <a href="browse.html?category=Plumber" class="footer-link">Plumber & Concealed Leaks</a>
+            <a href="browse.html?category=AC%20Repair" class="footer-link">Split AC & Gas Refill</a>
+            <a href="browse.html?category=Appliance%20Specialist" class="footer-link">Washing Machine & Fridge</a>
+            <a href="browse.html?category=RO%20Water%20Purifier" class="footer-link">RO Water Purifiers</a>
+            <a href="browse.html?category=Carpenter" class="footer-link">Carpenter & Door Locks</a>
+          </div>
+
+          <div>
+            <h4 class="footer-heading">Platform Features</h4>
+            <a href="calculator.html" class="footer-link">Smart Rate Card Estimator</a>
+            <a href="browse.html" class="footer-link">Verified Service Directory</a>
+            <a href="partner.html" class="footer-link">Partner Pro Portal</a>
+          </div>
+
+          <div>
+            <h4 class="footer-heading">Safety & Trust</h4>
+            <p class="text-xs text-slate-400 mb-2">Technicians are paid only after OTP verification upon customer satisfaction.</p>
+            <p class="text-xs text-slate-400">Helpline: <strong class="text-slate-200">+91 (120) 456-7890</strong></p>
+          </div>
+        </div>
+
+        <div class="pt-8 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+          <p>© 2026 Servicegully Technologies Pvt Ltd. All rights reserved.</p>
+          <div class="flex items-center gap-4">
+            <a href="#" class="hover:text-slate-300">Privacy Policy</a>
+            <a href="#" class="hover:text-slate-300">Terms of Service</a>
+            <a href="calculator.html" class="hover:text-slate-300">Standard Rate Card Guidelines</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Mobile Bottom Navigation -->
+    <nav class="mobile-bottom-nav">
+      <a href="index.html" class="mobile-nav-item active">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        <span>Home</span>
+      </a>
+      <a href="browse.html" class="mobile-nav-item">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+        <span>Browse</span>
+      </a>
+      <a href="calculator.html" class="mobile-nav-item">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="16" height="20" x="4" y="2" rx="2"/><line x1="8" x2="16" y1="6" y2="6"/><line x1="16" x2="16" y1="14" y2="18"/><path d="M16 10h.01"/><path d="M12 10h.01"/><path d="M8 10h.01"/><path d="M12 14h.01"/><path d="M8 14h.01"/><path d="M12 18h.01"/><path d="M8 18h.01"/></svg>
+        <span>Estimator</span>
+      </a>
+    </nav>
+    <script src="js/servicegully.js"></script>
+  </body>
 </html>
