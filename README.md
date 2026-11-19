@@ -1,6 +1,6 @@
 # ServiceGully — Frontend Project
 
-A frontend-only prototype for discovering local service professionals.
+A frontend-only prototype for discovering local service professionals and placing demo service requests.
 
 ## Technologies
 - HTML5
@@ -14,10 +14,15 @@ A frontend-only prototype for discovering local service professionals.
 - `calculator.html` — Service cost estimator
 - `partner.html` — Partner information page
 
-## JavaScript functionality
+## Implemented frontend features
+- Customer and Service Provider demo sign-up/sign-in with separate roles
+- My Account dashboard with account details
+- Customer booking history linked to the signed-in customer's email
+- Booking status display and cancel-booking option
+- Booking form with name, 10-digit phone, address and preferred date validation
+- Booking confirmation with a shortcut to My Bookings
 - Search and category filtering on the service directory
-- Booking request modal with HTML form validation
-- Demo booking requests saved in browser LocalStorage
+- Demo accounts and booking requests saved in browser LocalStorage
 
 ## Run the project
 Open `index.html` in a browser. For a local server, open a terminal in this folder and run:
@@ -28,5 +33,5 @@ python -m http.server 8080
 
 Then visit `http://localhost:8080`.
 
-## Scope note
-This is a frontend demonstration only. Booking details are stored locally in the browser; no backend, database, authentication, or real service-provider dispatch is connected.
+## Scope and limitations
+This is a frontend academic demonstration only. LocalStorage is browser-specific and can be cleared by the user. Demo passwords are not protected by server-side authentication. Booking requests are not sent to real service providers, and provider job assignment, payment, notifications and backend/database integration are not implemented.
